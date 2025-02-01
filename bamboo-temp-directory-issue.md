@@ -26,7 +26,7 @@ kubectl logs bamboo-58d7ff8778-rmtml -n bamboo
 "Bamboo failed to create the temp directory: /var/atlassian/application-data/bamboo/temp"
 
 
-<b>Solution</b<
+# Solution 
 To resolve the issue, follow these steps:
 
 1. Verify PersistentVolumeClaim (PVC)
