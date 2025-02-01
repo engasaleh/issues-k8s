@@ -1,4 +1,4 @@
-Issue: Bamboo Failed to Create Temp Directory
+#Issue: Bamboo Failed to Create Temp Directory
 Description
 The Bamboo Pod (bamboo-58d7ff8778-rmtml) failed to create the temporary directory at /var/atlassian/application-data/bamboo/temp. This issue prevented Bamboo from starting properly.
 
@@ -31,13 +31,15 @@ To resolve the issue, follow these steps:
 
 1. Verify PersistentVolumeClaim (PVC)
 Ensure the PVC (bamboo-shared-home) is properly provisioned and bound:
-```kubectl get pvc -n bamboo
+```
+kubectl get pvc -n bamboo
 ```
 
 2. Check Directory Permissions
 Verify that the Bamboo container has write permissions for the /var/atlassian/application-data/bamboo directory:
 - 1.Exec into the running Pod:
-```kubectl exec -it bamboo-58d7ff8778-rmtml -n bamboo -- /bin/sh
+```
+kubectl exec -it bamboo-58d7ff8778-rmtml -n bamboo -- /bin/sh
 ```
 
 - 2.Check the directory permissions:
@@ -96,7 +98,6 @@ initContainers:
         mountPath: /var/atlassian/application-data/bamboo
 
 ```
-
 
 2.Ensure the PVC is configured with sufficient storage and correct permissions.
 
